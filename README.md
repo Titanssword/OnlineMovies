@@ -5,7 +5,7 @@ A website can play the movies on your server.
 
 
 ## Angular_front
-前端基于AngularJS的heros进行开发，![相关链接](https://angular.io/tutorial)
+前端基于AngularJS的heros进行开发，[相关链接](https://angular.io/tutorial)
 ### 使用
 首先安装nodejs,
 进入Angular_front文件夹，
