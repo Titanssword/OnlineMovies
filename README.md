@@ -45,6 +45,25 @@ type TodoList []Todo
 ## 相关问题
 ### 跨域
  由于采用前后端分离的部署方式，端口不一样，会出现跨域的问题。（Solved）
+ 例如，前端使用80端口，后端使用8080端口。此时需要在80端口所在的web服务上配置反向代理。
+ ####　Apache2服务
+ ```
+ProxyPass /api http://127.0.0.1:8080/api
+ProxyPassReverse /api http://127.0.0.1:8080/api
+<Proxy *>
+	Order deny,allow
+	Allow from all
+</Proxy>
+```
+ 将上述代码放入Apache2配置文件的`VirtualHost *:80`代码块中
+ ####　Nginx服务
+```
+location /api {  
+            proxy_pass   http://127.0.0.1:8080/api;  
+
+        }
+```
+将上述代码放入Nginx配置文件的`server`代码块中
 ### 视频格式的适配问题
  对于部分mkv的视频，存在无法播放声音的问题。
 ### 功能单一
