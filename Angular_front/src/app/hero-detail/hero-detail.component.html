@@ -1,0 +1,20 @@
+<div *ngIf="hero">
+  <h2>{{hero.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{hero.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="hero.name" placeholder="name"/>
+    </label>
+  </div>
+  <video width="620" height="440" controls>
+    <source src="{{hero.url}}" type="video/mp4">
+    <source src="movie.ogg" type="video/ogg">
+    <source src="movie.webm" type="video/webm">
+    <object data="movie.mp4" width="320" height="240">
+      <embed src="movie.swf" width="320" height="240">
+    </object>
+  </video>
+  <br>
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>
